@@ -1,1 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The Most Beautiful Girl</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2b0818 0%, #4a1226 50%, #1a030d 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: fixed;
+            color: rgba(255, 105, 180, 0.6);
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 6s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Container & Card Styling */
+        .card-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 192, 203, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            color: #ffb6c1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+        }
+
+        /* Slider Styles */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .slide img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Text Content Styles */
+        .caption-box {
+            margin-top: 18px;
+            padding: 10px;
+        }
+
+        .english-line {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #fce4ec;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .urdu-poetry {
+            font-size: 1.2rem;
+            color: #ffd700;
+            line-height: 1.8;
+            direction: rtl;
+            font-family: 'Naskh', 'Traditional Arabic', serif;
+            border-top: 1px dashed rgba(255, 215, 0, 0.3);
+            padding-top: 10px;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            padding: 8px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+            z-index: 15;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 105, 180, 0.8);
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Indicators */
+        .dots-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active-dot {
+            background: #ff69b4;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Hearts -->
+    <div id="hearts-container"></div>
+
+    <div class="card-container">
+        <h1 class="title">✨ To The Most Beautiful ✨</h1>
+
+        <div class="slider-wrapper">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="image_3.png" alt="Her mesmerising eyes in veil">
+                <div class="caption-box">
+                    <p class="english-line">"Your eyes carry an entire universe of softness and mystery—one look is all it takes to get lost in them forever."</p>
+                    <p class="urdu-poetry">تیری آنکھوں کی معصومیت کا کیا کہنا<br>ان میں جھانکوں تو جہاں بھول جاتا ہوں</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="image_2.png" alt="Her amongst nature and flowers">
+                <div class="caption-box">
+                    <p class="english-line">"Surrounded by blossoms, yet the sun shines only to highlight your elegance. Even the flowers fade beside your grace."</p>
+                    <p class="urdu-poetry">پھول تو پھر بھی پھول ہیں، تجھ سا حسیں کون ہے<br>تیری رنگت کے آگے گلاب بھی شرمندہ ہیں</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="image.png" alt="Her soft smile and radiant beauty">
+                <div class="caption-box">
+                    <p class="english-line">"A subtle smile, warm floral tones, and a gentle gaze that brings peace to every heart."</p>
+                    <p class="urdu-poetry">تیرے چہرے کی چمک سے ہے روشن یہ صبا<br>تجھ کو دیکھا تو لگا، دل کو قرار آ ہی گیا</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="image_4.png" alt="Her simple yet striking look">
+                <div class="caption-box">
+                    <p class="english-line">"In complete simplicity, your innocence shines brighter than any light. Pure, authentic, and beautiful."</p>
+                    <p class="urdu-poetry">سادگی میں بھی قیامت کا نکھار رکھتی ہو<br>تم بنا سنورے بھی دل کو جیت لیتی ہو</p>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot active-dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active-dot'));
+
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active-dot');
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlide(slideIndex);
+        }
+
+        // Floating Hearts Generator
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
 
